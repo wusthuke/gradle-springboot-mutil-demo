@@ -1,0 +1,4 @@
+rootProject.name = 'gradle-config'
+include ':api'
+include ':service'
+include ':applicaton'

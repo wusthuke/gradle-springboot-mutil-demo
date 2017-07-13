@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.3.RELEASE"
+}
+
+
+allprojects {
+    group = "org.huke.demo.springboot"
+    version = "1.0.1"
+
+    ext {
+        springBootVersion = "1.5.4.RELEASE"
+        springVersion = "4.3.9.RELEASE"
+    }
+}
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'maven-publish'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    repositories {
+        mavenLocal()
+        maven { url "http://repository.apitops.com/content/groups/public/" }
+        maven { url "http://repository.apitops.com/content/repositories/releases/" }
+        maven { url "http://repository.apitops.com/content/repositories/snapshots/" }
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:$ext.springBootVersion"
+        }
+
+        dependencies {
+            dependency "org.springframework.boot:spring-boot-starter-web:$ext.springBootVersion"
+            dependencySet(group: "org.springframework", version: "$ext.springVersion") {
+                entry "spring-core"
+                entry "spring-beans"
+                entry "spring-context"
+            }
+        }
+    }
+
+    task sourceJar(type: Jar) {
+        from sourceSets.main.allJava
+        classifier "sources"
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                artifact sourceJar
+                pom.withXml {
+                    asNode().appendNode('description', 'A demonstration of Maven POM customization')
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                url "/users/huke/.m2/repository"
+            }
+        }
+    }
+}

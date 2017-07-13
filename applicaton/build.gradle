@@ -1,0 +1,21 @@
+apply plugin : "org.springframework.boot"
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.thymeleaf:thymeleaf-spring4")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+
+    compile project(':service')
+}
+
+// mainClassName = 'org.huke.demo.springboot.sample.Application'
+
+springBoot {
+    executable = true
+    mainClass = 'org.huke.demo.springboot.sample.Application'
+}
