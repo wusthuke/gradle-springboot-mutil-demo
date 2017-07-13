@@ -29,7 +29,9 @@ allprojects {
         springVersion = "4.3.9.RELEASE"
     }
 
-
+    release {
+        useAutomaticVersion = true
+    }
 }
 
 subprojects {
