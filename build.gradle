@@ -19,6 +19,7 @@ allprojects {
     apply plugin: "java"
     apply plugin: "io.spring.dependency-management"
     apply plugin: 'maven-publish'
+    apply plugin: 'net.researchgate.release'
 
     group = "org.huke.demo.springboot"
     version = "1.0.1"
