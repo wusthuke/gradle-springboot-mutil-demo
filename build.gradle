@@ -3,39 +3,31 @@ buildscript {
         mavenCentral()
         maven { url 'https://plugins.gradle.org/m2/' }
     }
+
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
-        classpath 'net.researchgate:gradle-release:2.4.0'
     }
 }
 
 plugins {
     id "io.spring.dependency-management" version "1.0.3.RELEASE"
-    id "net.researchgate.release" version "2.4.0"
 }
 
-
 allprojects {
-    apply plugin: "java"
-    apply plugin: "io.spring.dependency-management"
-    apply plugin: 'maven-publish'
-    apply plugin: 'net.researchgate.release'
-
     group = "org.huke.demo.springboot"
     version = "1.0.1"
 
     ext {
         springBootVersion = "1.5.4.RELEASE"
         springVersion = "4.3.9.RELEASE"
-    }
-
-    release {
-        useAutomaticVersion = true
+        junitVersion = "4.12"
     }
 }
 
 subprojects {
-
+    apply plugin: "java"
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'maven-publish'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -58,7 +50,10 @@ subprojects {
                 entry "spring-core"
                 entry "spring-beans"
                 entry "spring-context"
+                entry "spring-test"
             }
+            dependency "org.springframework.boot:spring-boot-starter-test:$ext.springBootVersion"
+            dependency "junit:junit:$ext.junitVersion"
         }
     }
 
@@ -79,9 +74,7 @@ subprojects {
         }
 
         repositories {
-            maven {
-                url "/users/huke/.m2/repository"
-            }
+            mavenLocal()
         }
     }
 }
