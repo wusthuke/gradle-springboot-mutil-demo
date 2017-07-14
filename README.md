@@ -1,1 +1,2 @@
-SpringBoot 采用 gradle 配置多模块示例.
+**SpringBoot gradle mutilproject config demo**
+
