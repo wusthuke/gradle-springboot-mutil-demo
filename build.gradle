@@ -75,6 +75,16 @@ subprojects {
 
         repositories {
             mavenLocal()
+            // maven { url "/users/huke/.m2/repository" }
         }
     }
+
+
+    /*uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "file://localhost/tmp/myRepo/")
+            }
+        }
+    }*/
 }

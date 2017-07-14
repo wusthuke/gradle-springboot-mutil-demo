@@ -6,4 +6,7 @@ dependencies {
     testCompile("junit:junit")
     
     compile project(':api')
+
+//    runtime fileTree(dir: '/Users/huke/Library/Application Support/IntelliJIdea2017.1/idea-multimarkdown/lib', include: '*.jar')
+//    runtime fileTree(dir: '/Applications/IntelliJ IDEA.app/Contents/lib', include: '*.jar')
 }
