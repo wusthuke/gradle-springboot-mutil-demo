@@ -11,6 +11,8 @@ dependencies {
     compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
 
     compile project(':service')
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 // mainClassName = 'org.huke.demo.springboot.sample.Application'
