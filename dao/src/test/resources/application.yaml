@@ -1,0 +1,9 @@
+mybatis:
+    type-aliases-package: org.huke.demo.springboot.dao.entity
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/test
+    username: root
+    password: Root@1234
+    driver-class-name: com.mysql.jdbc.Driver
