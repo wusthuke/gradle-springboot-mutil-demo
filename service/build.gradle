@@ -6,6 +6,7 @@ dependencies {
     testCompile("junit:junit")
     
     compile project(':api')
+    //compile project(':dao')
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
 //    runtime fileTree(dir: '/Users/huke/Library/Application Support/IntelliJIdea2017.1/idea-multimarkdown/lib', include: '*.jar')

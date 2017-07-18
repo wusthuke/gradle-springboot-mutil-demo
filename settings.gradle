@@ -1,6 +1,6 @@
 rootProject.name = 'gradle-config'
 include ':api'
+include ':dao'
 include ':service'
 include ':applicaton'
-include 'dao'
 

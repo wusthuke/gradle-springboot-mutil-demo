@@ -1,0 +1,9 @@
+
+dependencies {
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter'
+
+    runtime group: 'mysql', name: 'mysql-connector-java'
+
+    //testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.mybatis.spring.boot:mybatis-spring-boot-starter-test")
+}
