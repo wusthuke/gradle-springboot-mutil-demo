@@ -3,5 +3,3 @@ include ':api'
 include ':dao'
 include ':service'
 include ':applicaton'
-include ':test'
-

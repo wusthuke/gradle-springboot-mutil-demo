@@ -5,7 +5,6 @@ dependencies {
     testCompile("org.springframework:spring-test")
     testCompile("junit:junit")
 
-    compile project(':test')
     compile project(':api')
     //compile project(':dao')
 
