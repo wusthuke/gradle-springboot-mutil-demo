@@ -1,7 +1,10 @@
 package org.huke.demo.springboot.api;
 
+import org.huke.demo.springboot.service.ConfigurationService;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -9,7 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @create 14/7/2017
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration("classpath:spring-context-test.xml")
-public abstract class TestSupport {
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@Import({ConfigurationService.class})
+// @ContextConfiguration("classpath:spring-context-test.xml")
+public class TestSupport {
 
 }
